@@ -3,7 +3,7 @@
 ## How to run program:
 1. After cloning this repository onto your local machine, make sure that Docker is running in the background.
 
-2. Enter `docker build --tag glbrc-website` into the command line to initialize the Docker container.
+2. Enter `docker build --tag glbrc-website .` into the command line to initialize the Docker container.
 
 3. Enter `docker run --name glbrc-website -p 5001:5001 glbrc-website` to run the container.
 
