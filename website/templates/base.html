@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <title>{% block title %}Home{% endblock %}</title>
+    </head>
+    <body>
+        {% with messages = get_flashed_messages(with_categories = true)%}
+        {% if messages %}
+        {% for category,message in messages%}
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{message}}
+            </div>
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+        {% block content%}
+            <h1>This is the base page</h1>
+        {%endblock%}    
+        {% block javascript %}
+        <script type="text/javascript">
+            function changeStatus(id){
+                fetch('/change-status', {
+                    method: 'POST',
+                    body: JSON.stringify({id:id})
+                }).then((_res) => {
+                    window.location.href = '/'
+                });
+            }
+
+            var row;
+            function start(){  
+                row = event.target; 
+            }
+            function dragover(){
+                var e = event;
+                e.preventDefault(); 
+            
+                let children= Array.from(e.target.parentNode.parentNode.children);
+            
+                if(children.indexOf(e.target.parentNode)>children.indexOf(row))
+                    e.target.parentNode.after(row);
+                else
+                    e.target.parentNode.before(row);
+            }
+        </script>
+        {%endblock%} 
+    </body>
+</html>

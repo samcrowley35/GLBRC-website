@@ -1,0 +1,29 @@
+{% extends "base.html"%} 
+{% block title %}Home Page{% endblock %}
+{% block content%}
+<h1>Home</h1>
+<br>
+<div display="flex">
+    <a href="{{url_for('views.edit_links')}}"><input type="button" value="Edit Links" data-inline="true"/> 
+    <a href="{{url_for('auth.logout')}}"><input type="button" value="Logout" data-inline="true"/>
+</div>
+<br>
+<!-- For some god damn reason everything is underlined, problem for later, get the basics down first -->
+<!-- Maybe work in the color somehow if there's time -->
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Link</th>
+    </tr>
+    {% for link in link_list %}
+        <tr draggable="true" ondragstart="start()"  ondragover="dragover()">
+            <td>{{link['name']}}</td>
+            <td>{{link['description']}}</td>
+            <td>
+                <a href="{{link['link']}}"><img src="static/{{link['name']}}-logo.png" height="50" width="50"></a>
+            </td>			
+        </tr>
+    {% endfor %}
+</table>
+{%endblock%}

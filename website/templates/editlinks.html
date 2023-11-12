@@ -1,0 +1,24 @@
+{% extends "base.html"%} 
+{% block title %}Edit Links{% endblock %}
+{% block content%}
+<h1>Edit Links Here</h1>
+<br>
+<table>
+    <tr>
+        <th>Link</th>
+        <th>Display Status</th>
+        <th></th>
+    </tr>
+    {% for trio in link_info %}
+        <tr>
+            <td>{{trio[0]}}</td>
+            <td>{{trio[1]}}</td>
+            <td>
+                <!-- When clicked, this needs to change the status of the link for the user, then return to the current page  -->
+                <!-- Might just have to use some JS to do this -->
+                <!-- Need the id to pass into it href="changeStatus( {{trio[2]}} )" -->
+                <button type="button" onclick="changeStatus({{trio[2]}})" >Change Status</button>
+        </tr>
+    {% endfor %}
+</table>
+{%endblock%}
