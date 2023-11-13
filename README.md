@@ -1,6 +1,6 @@
 # Website for the GLBRC software engineer position
 
-## How to run program:
+## Running the program:
 1. After cloning this repository onto your local machine, make sure that Docker is running in the background.
 
 2. Enter `docker build --tag glbrc-website .` into the command line to initialize the Docker container.
