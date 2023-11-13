@@ -48,9 +48,8 @@ def change_status():
         # Need to remove the link from the User's link list
         current_user.links.remove(link)
     else:
-        # Add the link to the list if it's not already there, if it is, do nothing
-        if l_id not in active_link_ids:
-            current_user.links.append(link)
+        # Add the link to the list if it's not already there
+        current_user.links.append(link)
 
     db.session.commit()
     
