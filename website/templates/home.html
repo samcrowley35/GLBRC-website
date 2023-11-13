@@ -3,11 +3,6 @@
 {% block content%}
 <h1>Home</h1>
 <br>
-<div display="flex">
-    <a href="{{url_for('views.edit_links')}}"><input type="button" value="Edit Links" data-inline="true"/> 
-    <a href="{{url_for('auth.logout')}}"><input type="button" value="Logout" data-inline="true"/>
-</div>
-<br>
 <!-- For some god damn reason everything is underlined, problem for later, get the basics down first -->
 <!-- Maybe work in the color somehow if there's time -->
 <table>
@@ -26,4 +21,9 @@
         </tr>
     {% endfor %}
 </table>
+<br>
+<div display="flex">
+    <a href="{{url_for('views.edit_links')}}"><input type="button" value="Edit Links" data-inline="true"/> 
+    <a href="{{url_for('auth.logout')}}"><input type="button" value="Logout" data-inline="true"/>
+</div>
 {%endblock%}
